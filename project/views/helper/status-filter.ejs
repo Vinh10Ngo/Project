@@ -1,0 +1,19 @@
+<% filterStatusHelper = (statusFilter) => {%>
+    <%
+    statusFilter.forEach((item, index) => {
+     %>
+     <a href="/<%= systemConfigs.prefixAdmin%>/themes/<%= item.value%>" class="mr-1 btn btn-sm btn-info"><%= item.name%>> <span class="badge badge-pill badge-light"><%=item.count%></span></a>
+     <%   
+    })
+    %>
+<%}%>
+<!-- <a href="i" class="my-btn-state rounded-circle btn btn-sm btn-danger"></a> -->
+
+
+<!-- <%
+statusFilter.forEach((item, index) => {
+ %>
+ <a href="#" class="mr-1 btn btn-sm btn-info"><%= item.name%>> <span class="badge badge-pill badge-light"><%=item.count%></span></a>
+ <%   
+})
+%> -->
