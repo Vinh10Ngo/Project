@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
+const folderViews = __path__views + 'themes/publish/'
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('themes/publish/index', { pageTitle: 'HomePage' });
+  res.render(`${folderViews}index`, { pageTitle: 'HomePage' });
 });
 
 
