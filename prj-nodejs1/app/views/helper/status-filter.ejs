@@ -1,0 +1,14 @@
+<% filterStatusHelper = (collection, statusFilter, keyword) => {
+    let xHtmlResult = ''
+    statusFilter.forEach((item) => {
+        
+    let link = systemConfigs.prefixAdmin + '/' + collection + '/' + item.value
+    if(keyword !== '' && keyword !== undefined) link += '?keyword=' + keyword
+    console.log(item.name)
+
+     xHtmlResult += `<a href="/${link}" class="mr-1 btn btn-sm btn-info">${item.name} <span class="badge badge-pill badge-light">${item.count}</span></a>` 
+    })
+    return xHtmlResult
+}    
+%>
+
