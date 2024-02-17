@@ -1,0 +1,22 @@
+
+<%
+statusHelper = (linkPrefix, status, id) => {
+    let link = linkPrefix +  'change-status' + '/'+ id + '/' +status
+    let icon = 'fa-check'
+    let className = 'btn-success'
+    if (status === 'inactive') {
+        className = 'btn-danger'
+        icon = 'fa-minus'
+    }
+    return `
+    <a href="/${link}"
+        data-active-class="btn-success"
+        data-active-icon="fa-check"
+        data-inactive-class="btn-danger"
+        data-inactive-icon="fa-minus"
+        data-current-class="${className}"
+        data-current-icon="${icon}"
+        class="ajax-status my-btn-state rounded-circle btn btn-sm ${className}"><i class="fas ${icon}"></i></a>`
+}
+%>
+

@@ -1,0 +1,16 @@
+<% groupsACPHelper = (linkPrefix, groups_acp, id) => {
+    let link = linkPrefix +  'change-groups_acp' + '/'+ id + '/' +groups_acp
+    let iconClass = (groups_acp == 'yes') ? "fa-check-square" : "fa-square"
+
+    return `<a href="/${link}"
+            data-yes="fa-check-square"
+            data-no="fa-square"
+            data-current="${iconClass}" class="ajax-groups_acp fas fa-2x ${iconClass}"></a>`
+            
+}    
+%>
+
+
+
+
+

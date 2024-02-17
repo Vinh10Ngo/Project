@@ -1,0 +1,68 @@
+<% include ./../../helper/input%>
+<% include ./../../helper/selectBox%>
+<% include ./../../helper/textArea%>
+<% include ./../../helper/formBody%>
+<% include ./../../helper/image%>
+<% include ./../../helper/source_by%>
+
+
+<%
+const linkPrefix = systemConfigs.prefixAdmin + `/${controllerName}/`
+const uploadPath = 'uploads/users/'
+
+let elementsForm = [
+{id: 'form[name]', for: 'form[name]', label: 'Name', input: inputHelper("text", "name", item.name, {'id': 'form[name]'})},
+{id: 'form[username]', for: 'form[username]', label: 'Username', input: inputHelper("text", "username", item.username, {'id': 'form[username]'})},
+{id: 'form[password]', for: 'form[password]', label: 'Password', input: inputHelper("password", "password", item.password, {'id': 'form[password]'})},
+{id: 'form[ordering]', for: 'form[ordering]', label: 'Ordering', input: inputHelper("number", "ordering", item.ordering, {'id': 'form[ordering]'})},
+{id: 'form[status]', for: 'form[status]', label: 'Status', input: selectBoxHelper('status', systemConfigs.status_value, item.status, '')},
+{id: 'form[groups]', for: 'form[groups]', label: 'Groups', input: selectBoxHelper('groups_id', groupsItems, item.groups_id, '')},
+{id: 'form[content]', for: 'form[content]', label: 'Content', input: textAreaHelper('content', item.content)},
+{id: 'form[created]', for: 'form[created]', label: 'Created', input: sourceByHelper(item.created.user_name, item.created.time)},
+{id: 'form[avatar]', for: 'form[avatar]', label: 'Avatar', input: inputHelper("file", "avatar", item.avatar, {'id': 'imgInp'})},
+]
+const indexToInsert = elementsForm.findIndex(el => el.id === 'form[avatar]');
+if (indexToInsert !== -1 && item.id) {
+  elementsForm.splice(indexToInsert, 0, {
+    id: 'form[modified]', 
+    for: 'form[modified]',
+    label: 'Modified',
+    input: sourceByHelper(item.modified.user_name, item.modified.time)
+  });
+}
+
+if (item.id) {
+  elementsForm = elementsForm.filter(element => element.id !== 'form[password]');
+}
+%>
+
+<section class="content">
+    <div class="container-fluid">
+        <% include ./../../elements/errors%>
+        <div class="card card-info card-outline">
+            <div class="card-body">
+                <form action="/<%= linkPrefix%>save" method="post" enctype="multipart/form-data" class="mb-0" id="admin-form" name="form_upload">
+
+                    <%- formBodyHelper(elementsForm)%>
+                    <div class="col-12 col-sm-8 offset-sm-2">
+                        <label></label>
+                        <%- imageHelper(uploadPath, item.avatar, item.name, '800', '500')%>
+                    </div>
+                    <input type="hidden" id="form[token]" name="image_old" value="<%= item.avatar%>">
+                    <input type="hidden" id="form[token]" name="id" value="<%= item.id%>">
+                    <!-- mỗi lần selecbox được chọn thì lấy giá trị gắn vào input 
+                     khi submit dữ liệu thì lấy được tên group-->
+                    <input type="hidden" id="form[token]" name="groups_name" value="<%= item.groups_name%>">
+                    <div class="card-footer">
+                        <div class="col-12 col-sm-8 offset-sm-2">
+                            <button type="submit" class="btn btn-primary">Submit </button>
+                            <a href="/<%= linkPrefix%>" class="btn btn-danger"> Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</section>

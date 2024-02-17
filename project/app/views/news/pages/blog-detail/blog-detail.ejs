@@ -1,0 +1,105 @@
+<% include ./../../helper/format-time%>
+
+<%
+const uploadPath = '/uploads/article/'
+
+const url = `/${systemConfigs.prefixNews}/`;
+
+const cleanedURL = url.replace(/\/+/g, '/');
+
+
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="animsition">
+	
+	<!-- Header -->
+	<div class="container">
+		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
+			</div>
+
+            <% include ./../../elements/search%>
+
+		</div>
+	</div>
+	
+	<!-- Content -->
+	<section class="bg0 p-b-140 p-t-10">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-8 p-b-30">
+					<div class="p-r-10 p-r-0-sr991">
+						<!-- Blog Detail -->
+						<div class="p-b-70" id="recentlyViewedPostsForUser" data-post="<%= JSON.stringify(itemsBlogDetail)%>" data-user-id="<%= userId%>">
+							<a href="<%=cleanedURL%>category/<%= itemsBlogDetail.category.id%>" class="f1-s-10 cl2 hov-cl10 trans-03 text-uppercase">
+								<%= itemsBlogDetail.category.name%>
+							</a>
+						
+							<h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
+								<%= itemsBlogDetail.name%>
+							</h3>
+							
+							<div class="flex-wr-s-s p-b-40">
+								<span class="f1-s-3 cl8 m-r-15">
+									<%= itemsBlogDetail.created.user_name%>
+
+						
+									<span class="m-rl-3">-</span>
+						
+									<span>
+										<%- formatTimeHelper (itemsBlogDetail.created.time) %>
+									</span>
+								</span>
+						
+								<span class="f1-s-3 cl8 m-r-15">
+									<%= itemsBlogDetail.view%> Views
+								</span>
+						
+							</div>
+						
+							<div class="wrap-pic-max-w p-b-30">
+								<img src="<%= uploadPath + itemsBlogDetail.thumb%>" alt="<%=itemsBlogDetail.name%>">
+							</div>
+						
+							<p class="f1-s-11 cl6 p-b-25" id="content">
+								<%- itemsBlogDetail.content%> 
+							</p>
+						
+						</div>
+					</div>
+				</div>
+				
+				<!-- Sidebar -->
+				<div class="col-md-10 col-lg-4 p-b-30">
+					<div class="p-l-10 p-rl-0-sr991 p-t-70">						
+						<!-- Category -->
+						<% include ./../../elements/category%>
+
+						<!-- Archive -->
+
+						<!-- Popular Posts -->
+						<% include ./../../elements/popular-post%>
+
+						<!-- Tag -->
+						<% include ./../../elements/tag%>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+
+
+	<!-- Back to top -->
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<% 
+    actionContactHelper = (linkPrefix) => { 
+        let actions = [
+            { value: "", name: "Bulk Action" },
+            { value: "change-status/active", name: "Active" },
+            { value: "change-status/inactive", name: "InActive" },
+            { value: "delete/", name: "Delete" },
+        ];
+        let xhtmlAction = '';
+
+        actions.forEach((action)=> {
+            let link = linkPrefix + action.value;
+            xhtmlAction += `<option value="/${link}">${action.name}</option>`;
+        });
+
+        return `<div class="d-flex flex-wrap align-items-center justify-content-between mb-2">
+            <div class="mb-1">
+               <select id="bulk-action" name="bulk-action" class="custom-select custom-select-sm mr-1 slbAction" style="width: unset">
+                    ${xhtmlAction}
+                   </select> 
+                <button id="btn-action" class="btn btn-block btn-primary">Apply <span class="badge badge-pill badge-danger navbar-badge" ></span></button>
+            </div>
+          
+        </div>`;
+    } 
+%>
+
+
+
+
+
+

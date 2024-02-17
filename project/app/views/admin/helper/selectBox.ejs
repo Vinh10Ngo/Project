@@ -1,0 +1,15 @@
+<!-- optionSelected: truyền vào id của phần tử được chọn -->
+<% selectBoxHelper = (name, item, optionSelected = '', idSelect) => {
+    let xHtmlResult = ''
+    
+    item.forEach((item) => {
+        <!-- phần tử được đổ ra phần tử nào có id = optionSelected thì được chọn -->
+        let selected = (optionSelected == item.id) ? 'selected = "selected"': ''        
+         let id = (item.id == undefined) ? 'allvalue' : item.id
+        xHtmlResult += `<option value=${id} ${selected}>${item.name}</option>`
+    })  
+    return `<select id="${idSelect}" name=${name} class="custom-select custom-select-sm">${xHtmlResult}
+    </select>`
+}    
+%>
+

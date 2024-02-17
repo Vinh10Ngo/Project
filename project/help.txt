@@ -1,0 +1,47 @@
+option sortHelper --> ok
+id inputHelper --> ok
+content textarea form undefined --> ok
+avatar validate --> ok
+update groups.id (undefined)
+reload => delete --> ok
+delete error back form --> ok
+back form --> ok
+
+save history 
+change format time frontend --> ok
+no data --ok
+page title --> ok
+error page --ok
+info management --ok
+show a lot of category type (view_type, include) --ok
+content --> ok
+change dasboard file --> ok
+sidebar login --> ok
+delete icon home index --> ok
+news file me.js frontend --ok
+news menu --ok
+optimaze phần phân trang --> ok
+add modified username (article + category). add created username --> ok
+check namesake --> ok
+add username + password into form --> ok
+image error 404
+tag manager --ok
+created id
+slug Article --ok
+Password format --> ok
+content group content accept
+time form backend category, article --ok
+search all ? --ok
+password md5 save --ok
+nameshake groups validate --ok
+<!-- 
+<a href="/<%= linkPrefix%>form/<%= item.id%>" class="rounded-circle btn btn-sm btn-info" title="Edit">
+    <i class="fas fa-pencil-alt"></i>
+</a>
+
+<a href="/<%= linkPrefix%>delete/<%= item.id%>" class="rounded-circle btn btn-sm btn-danger" title="Delete">
+    <i class="fas fa-trash-alt"></i>
+</a> -->    
+    
+<%- JSON.stringify() %>
+

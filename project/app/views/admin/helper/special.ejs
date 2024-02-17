@@ -1,0 +1,16 @@
+<% specialHelper = (linkPrefix, special, id) => {
+    let link = linkPrefix +  'change-special' + '/'+ id + '/' + special
+    let iconClass = (special == 'yes') ? "fa-check-square" : "fa-square"
+
+    return `<a href="/${link}"
+            data-yes="fa-check-square"
+            data-no="fa-square"
+            data-current="${iconClass}" class="ajax-special fas fa-2x ${iconClass}"></a>`
+            
+}    
+%>
+
+
+
+
+

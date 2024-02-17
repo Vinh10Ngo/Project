@@ -1,0 +1,48 @@
+<% include ./../helper/format-time%>
+
+<%
+const uploadPath = '/uploads/article/'
+const url = `/${systemConfigs.prefixNews}/`;
+
+const cleanedURL = url.replace(/\/+/g, '/');
+
+%>
+<div class="p-b-30">
+    <div class="how2 how2-cl4 flex-s-c">
+        <h3 class="f1-m-2 cl3 tab01-title">
+            Popular Post
+        </h3>
+    </div>
+
+    <ul class="p-t-35">
+        <% itemsMostPopular.forEach((item, index) => { %>
+        <li class="flex-wr-sb-s p-b-30">
+            <a href="<%=cleanedURL%>blog-detail/<%= item.id%>" class="size-w-10 wrap-pic-w hov1 trans-03">
+                <img src="<%= uploadPath + item.thumb%>" alt="<%=item.name%>">
+            </a>
+
+            <div class="size-w-11">
+                <h6 class="p-b-4">
+                    <a href="<%=cleanedURL%>blog-detail/<%= item.id%>" class="f1-s-5 cl3 hov-cl10 trans-03">
+                        <%=item.name%>
+                    </a>
+                </h6>
+
+                <span class="cl8 txt-center p-b-24">
+                    <a href="<%=cleanedURL%>category/<%= item.category.id%>" class="f1-s-6 cl8 hov-cl10 trans-03">
+                        <%=item.category.name%>
+                    </a>
+
+                    <span class="f1-s-3 m-rl-3">
+                        -
+                    </span>
+
+                    <span class="f1-s-3">
+                        <%- formatTimeHelper (item.created.time) %>
+                    </span>
+                </span>
+            </div>
+        </li>
+        <% }) %>
+    </ul>
+</div>

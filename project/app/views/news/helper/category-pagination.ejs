@@ -1,0 +1,30 @@
+<%
+categoryPaginationHelper = (linkPrefix, totalPages, idCategory, paginationInfo) => {
+    let htmlResult = '<div class="flex-wr-s-c m-rl--7 p-t-15"><ul>';
+
+    if (paginationInfo.start > 1) {
+        htmlResult += `<li><a href="${linkPrefix}category/${idCategory}?page=1" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 pagi-active">1</a></li>`;
+        if (paginationInfo.start > 2) {
+            htmlResult += '<li><span>...</span></li>';
+        }
+    }
+
+    paginationInfo.pages.forEach(page => {
+        htmlResult += `<li><a href="${linkPrefix}category/${idCategory}?page=${page}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 pagi-active">${page}</a></li>`;   
+    });
+
+    if (paginationInfo.end < totalPages) {
+        if (paginationInfo.end < totalPages - 1) {
+            htmlResult += '<li><span>...</span></li>';
+        }
+        htmlResult += `<li><a href="${linkPrefix}category/${idCategory}?page=${totalPages}" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 pagi-active">${totalPages}</a></li>`;
+    } 
+
+    htmlResult += '</ul></div>';
+    return htmlResult;
+}
+%>
+
+
+
+

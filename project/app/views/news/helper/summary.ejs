@@ -1,0 +1,9 @@
+<%
+summaryHelper = (content) => {
+    content = content.replace(/<[^>]*>/g, '')
+    let maxWords = 5;
+    let words = content.split(' ');
+    let shortenedText = words.slice(0, maxWords).join(' ') + "...";
+    return shortenedText
+}
+%>

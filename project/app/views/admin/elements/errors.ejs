@@ -1,0 +1,12 @@
+<% if(errors) {%>
+  <div class="alert alert-danger alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h5><i class="icon fas fa-exclamation-triangle"></i> Lỗi!</h5>
+      <ul class="list-unstyled mb-0">
+        <% errors.forEach(error => { %>
+          <li class="text-white"><b><%- (error.param.replace(/_id$/, '').replace(/_/g, ' ').charAt(0).toUpperCase() + error.param.replace(/_id$/, '').replace(/_/g, ' ').slice(1)) %>
+            :</b> <%= error.msg%></li>
+        <% }) %>
+      </ul>
+  </div>
+  <% }%>

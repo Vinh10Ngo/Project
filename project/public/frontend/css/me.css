@@ -1,0 +1,216 @@
+.article-list {
+    display: flex;
+    flex-wrap: nowrap; /* Ngăn chặn việc ngắt dòng */
+    overflow-x: auto; /* Cho phép cuộn nếu danh sách quá rộng */
+    gap: 10px; /* Khoảng cách giữa các mục */
+  }
+  
+/* Trong file CSS của bạn */
+.flex-wr-s-c {
+  display: flex;
+  justify-content: left; /* Căn giữa các phần tử */
+}
+
+.flex-wr-s-c ul {
+  list-style: none; /* Loại bỏ dấu đầu dòng của danh sách */
+  display: flex; /* Sắp xếp các nút phân trang trên cùng một hàng */
+  padding: 0;
+}
+
+.flex-wr-s-c ul li {
+  margin: 0 5px; /* Khoảng cách giữa các nút */
+}
+
+.highlight {
+  background-color: yellow;
+  /* Các thuộc tính CSS khác để highlight */
+}
+
+.mega-menu-item a::after,
+.main-menu-active a::after {
+  display: none;
+}
+
+.bg0.error-image {
+  background-color: #f0f0f0; /* Màu nền có thể thay đổi theo ý muốn */
+  height: 100vh; /* Chiều cao của container sẽ là 100% chiều cao của cửa sổ xem */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container.error2-image img {
+  max-width: 100%; /* Hình ảnh sẽ thu nhỏ lại khi vượt quá kích thước của container */
+  height: auto; /* Giữ tỷ lệ khung hình khi thu nhỏ */
+}
+
+.wrap-pic-w.big-image {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* Thay đổi giá trị để giảm chiều cao (tính toán 4:3) */
+  position: relative;
+}
+
+.wrap-pic-w.big-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.clamp-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Số dòng tối đa hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* CSS */
+.row-equal-height {
+  display: flex;
+}
+
+.row-equal-height [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-equal-height [class*="col-"] > div {
+  flex-grow: 1;
+}
+
+.row-equal-height [class*="col-"] a {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center; /* Áp dụng text-align: center cho tất cả các ô */
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+
+    #coinPriceTable td {
+      max-width: 50px; /* Đặt chiều rộng tối đa cho ô */
+      word-wrap: break-word; /* Cho phép chữ tự xuống dòng */
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    #coinPriceTable th,
+#coinPriceTable td {
+  text-align: center; /* Căn giữa nội dung trong ô */
+}
+
+#coinPriceTable th:first-child,
+#coinPriceTable td:first-child {
+  width: 10%; /* Đặt chiều rộng cho cột # */
+}
+
+#coinPriceTable th:nth-child(2),
+#coinPriceTable td:nth-child(2) {
+  width: 30%; /* Đặt chiều rộng cho cột Name */
+}
+
+#coinPriceTable th:nth-child(3),
+#coinPriceTable td:nth-child(3) {
+  width: 30%; /* Đặt chiều rộng cho cột Price */
+}
+
+#coinPriceTable th:nth-child(4),
+#coinPriceTable td:nth-child(4),
+#coinPriceTable th:nth-child(5),
+#coinPriceTable td:nth-child(5) {
+  width: 15%; /* Đặt chiều rộng cho cột Percent Change 24h và Percent Change 1h */
+}
+
+  .table th,
+  .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+
+  .circle-image-container {
+    position: relative;
+    overflow: hidden;
+    width: 200px; /* Điều chỉnh kích thước của hình chữ nhật theo mong muốn */
+    height: 200px; /* Điều chỉnh kích thước của hình chữ nhật theo mong muốn */
+  }
+
+  .circle-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+  }
+
+  .circle-image-container::before {
+    content: '';
+    display: block;
+    padding: 15%; /* Điều chỉnh kích thước hình tròn bằng cách thiết lập padding */
+  }
+  .text-right img {
+    border-radius: 50%;
+}
+.logo.text-right.circle-image-container {
+  position: relative;
+  overflow: visible;
+}
+
+.logo.text-right.circle-image-container .dropdown-menu {
+  position: absolute;
+  z-index: 10000;
+  top: 100%;
+  left: -100%; /* Sử dụng left với giá trị âm hoặc 0 */
+  margin-top: 10px;
+  overflow: visible;
+  max-width: 200px;
+  margin-right: -10px; /* Điều chỉnh khoảng cách từ phần border phải của dropdown đến phần border phải của button */
+  width: 200px; /* Đặt chiều rộng theo ý muốn */
+  max-height: 300px; /* Đặt chiều cao tối đa theo ý muốn */
+  overflow-y: auto; /* Cho phép cuộn nếu nội dung quá lớn */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="animsition">
+	
+
+	<!-- Breadcrumb -->
+	<div class="container">
+		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
+			</div>
+
+            <% include ./../../elements/search%>
+
+		</div>
+	</div>
+	<!-- Page heading -->
+	<% include ./../../elements/page-heading%>
+
+	<!-- Content -->
+	<section class="bg0 p-b-110">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-8 p-b-30">
+					<div class="p-r-10 p-r-0-sr991">
+						<%- configInfo[0].about %>
+					</div>
+				</div>
+				
+				<!-- Sidebar -->
+				<div class="col-md-5 col-lg-4 p-b-30">
+					<div class="p-l-10 p-rl-0-sr991 p-t-5">
+						<!-- Popular Posts -->
+						<% include ./../../elements/popular-post%>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+</body>
+</html>

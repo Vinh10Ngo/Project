@@ -1,0 +1,8 @@
+<%
+hightlightHelper = (name, search) => {
+    if(search.length > 0) return name.replace(new RegExp(search, 'ig'), (searchResult) => {
+       return `<span class ='hightlight' style="background-color:rgb(200, 255, 0);">${searchResult}</span>`
+    })
+    return name     
+}
+%>  

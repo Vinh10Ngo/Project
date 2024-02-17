@@ -1,0 +1,67 @@
+
+<%
+
+const url = `/${systemConfigs.prefixNews}/`;
+
+const cleanedURL = url.replace(/\/+/g, '/');
+
+
+%>
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="animsition">
+	
+	<!-- Breadcrumb -->
+	<div class="container">
+		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+			<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
+			</div>
+
+            <% include ./../../elements/search%>
+
+		</div>
+	</div>
+	<!-- Page heading -->
+    <% include ./../../elements/page-heading%>
+	
+	<!-- Content -->
+	<section class="bg0 p-b-60">
+		<div class="container">
+			<% include ./../../elements/flash%>
+			<% include ./../../elements/errors%>
+			<div class="row justify-content-center">				
+				<div class="col-md-7 col-lg-8 p-b-80">
+					<div class="p-r-10 p-r-0-sr991">
+						<form action="<%=cleanedURL%>contact/save" method="POST" enctype="application/x-www-form-urlencoded">
+							<input class="bo-1-rad-3 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="name" placeholder="Name*">
+
+							<input class="bo-1-rad-3 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="email" placeholder="Email*">
+
+							<input class="bo-1-rad-3 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="phone" placeholder="Phone*">
+
+
+							<input class="bo-1-rad-3 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="website" placeholder="Website">
+
+							<textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="message" placeholder="Your Message"></textarea>
+
+							<button type="submit" class="size-a-20 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-20">
+								Send
+							</button>
+						</form>
+					</div>
+				</div>
+				
+				<!-- Sidebar -->
+				<div class="col-md-5 col-lg-4 p-b-80">
+					<div class="p-l-10 p-rl-0-sr991">
+						<!-- Popular Posts -->
+                        <% include ./../../elements/popular-post%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

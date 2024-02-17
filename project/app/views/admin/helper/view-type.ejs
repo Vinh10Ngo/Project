@@ -1,0 +1,21 @@
+<% viewTypeHelper = (linkPrefix, view_type, id) => {
+    let link = linkPrefix +  'change-view-type' + '/'+ id + '/' + view_type
+    let bgClass = (view_type == 'list') ? "btn-success" : "btn-info"
+    let name = (view_type == 'list') ? 'List' : 'Grid'
+
+    return `<a href="/${link}"
+            data-list-class="btn-success"
+            data-list-name="List"
+            data-grid-class="btn-info"
+            data-grid-name="Grid"
+            data-current-class="${bgClass}" 
+            data-current-name="${name}" 
+            class="ajax-view-type btn btn-block ${bgClass}">${name}</a>`
+            
+}    
+%>
+
+
+
+
+

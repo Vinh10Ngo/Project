@@ -1,0 +1,97 @@
+<%
+showCategoryInHomeHelper = (category, articles, link, uploadPath) => {
+  let arr = [];
+  let classDivOptions = ['how2-cl1', 'how2-cl2', 'how2-cl3'];
+  let classH3Options = ['cl12', 'cl13', 'cl14'];
+  
+  for (let i = 0; i < category.length; i++) {
+    if (category[i]) {
+      arr.push({
+        classDiv: classDivOptions[i % classDivOptions.length],
+        classH3: classH3Options[i % classH3Options.length],
+        eachCategory: category[i]
+      });
+    }
+  }
+  let htmlResult = ''
+  arr.forEach((item, index) => {
+    const categoryArticles = articles.filter(article => article.category.id === item.eachCategory.id).slice(0, 4);
+    htmlResult += `<div class="tab01 p-b-20">`
+    htmlResult += `<div class="tab01-head how2 ${item.classDiv} bocl12 flex-s-c m-r-10 m-r-0-sr991">
+          <a href="${link}category/${item.eachCategory.id}">
+          <h3 class="f1-m-2 ${item.classH3} tab01-title">
+              ${item.eachCategory.name}
+          </h3>
+          </a>
+      </div>`
+    htmlResult += `<div class="tab-content p-t-35">
+      <!-- - -->
+      <div class="tab-pane fade show active" id="tab1-1" role="tabpanel">
+        <div class="row row-equal-height">`
+    htmlResult += `  <div class="col-sm-6 p-r-25 p-r-15-sr991">
+      <!-- Item post -->	
+      <div class="m-b-30">
+        <a href="${link}blog-detail/${categoryArticles[0].id}" class="wrap-pic-w image-in-home hov1 trans-03">
+          <img src="${uploadPath + categoryArticles[0].thumb}" alt="${categoryArticles[0].name}">
+        </a>
+
+        <div class="p-t-20">
+          <h5 class="p-b-5">
+            <a href="${link}blog-detail/${categoryArticles[0].id}" class="f1-m-3 cl2 hov-cl10 trans-03">
+              ${categoryArticles[0].name} 
+            </a>
+          </h5>
+
+          <span class="cl8">
+            <a href="${link}category/${categoryArticles[0].category.id}" class="f1-s-4 cl8 hov-cl10 trans-03">
+              ${categoryArticles[0].category.name}
+            </a>
+
+            <span class="f1-s-3 m-rl-3">
+              -
+            </span>
+
+            <span class="f1-s-3">
+              ${formatTimeHelper(categoryArticles[0].created.time)}
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>`
+    htmlResult += `<div class="col-sm-6 p-r-25 p-r-15-sr991">`
+    for (let i = 1; i < categoryArticles.length; i++) {
+      htmlResult += `<div class="flex-wr-sb-s m-b-30">
+        <a href="${link}blog-detail/${categoryArticles[i].id}" class="size-w-1 wrap-pic-w image-in-home hov1 trans-03">
+          <img src="${uploadPath + categoryArticles[i].thumb}" alt="${categoryArticles[i].name}">
+        </a>
+
+        <div class="size-w-2">
+          <h5 class="p-b-5">
+            <a href="${link}blog-detail/${categoryArticles[i].id}" class="f1-s-5 cl3 hov-cl10 trans-03">
+              ${categoryArticles[i].name}
+            </a>
+          </h5>
+
+          <span class="cl8">
+            <a href="${link}category/${categoryArticles[i].category.id}" class="f1-s-6 cl8 hov-cl10 trans-03">
+              ${categoryArticles[i].category.name}
+            </a>
+
+            <span class="f1-s-3 m-rl-3">
+              -
+            </span>
+
+            <span class="f1-s-3">
+              ${formatTimeHelper(categoryArticles[i].created.time)}
+            </span>
+          </span>
+        </div>
+      </div>`
+    }
+    htmlResult += '</div>'
+    htmlResult += '</div>' + '</div>' + '</div>'
+    htmlResult += '</div>'
+  })
+  return htmlResult
+}
+%>

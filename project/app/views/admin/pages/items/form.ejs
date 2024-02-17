@@ -1,0 +1,46 @@
+<% include ./../../helper/input%>
+<% include ./../../helper/selectBox%>
+<% include ./../../helper/textArea%>
+<% include ./../../helper/formBody%>
+<% include ./../../helper/source_by%>
+<%
+const linkPrefix = systemConfigs.prefixAdmin + `/${controllerName}/`
+
+let elementsForm = [
+{id: 'form[name]', for: 'form[name]', label: 'Name', input: inputHelper("text", "name", item.name, {'id': 'form[name]'})},
+{id: 'form[ordering]', for: 'form[ordering]', label: 'Ordering', input: inputHelper("number", "ordering", item.ordering, {'id': 'form[ordering]'})},
+{id: 'form[status]', for: 'form[status]', label: 'Status', input: selectBoxHelper('status', systemConfigs.status_value, item.status, '')},
+{id: 'form[content]', for: 'form[content]', label: 'Content', input: textAreaHelper('content', item.content)},
+{id: 'form[created]', for: 'form[created]', label: 'Created', input: sourceByHelper(item.created.user_name, item.created.time)},
+]
+if (item.id) {
+    elementsForm.push({id: 'form[modified]', for: 'form[modified]', label: 'Modified', input: sourceByHelper(item.modified.user_name, item.modified.time)})
+}
+%>
+
+<section class="content">
+    <div class="container-fluid">
+        <% include ./../../elements/errors%>
+        <div class="card card-info card-outline">
+            <div class="card-body">
+                <form action="/<%= linkPrefix%>save" method="post" enctype="application/x-www-form-urlencoded" class="mb-0" id="admin-form" enctype="multipart/form-data">
+
+                    <%- formBodyHelper(elementsForm)%>
+
+                    <div class="col-12 col-sm-8 offset-sm-2">
+                        <img src="public/files/category/default.jpg" alt="preview image" id="admin-preview-image" style="display: none;width: 100%; max-width: 500px">
+                    </div>
+                    <input type="hidden" id="form[token]" name="id" value="<%= item.id%>">
+                    <div class="card-footer">
+                        <div class="col-12 col-sm-8 offset-sm-2">
+                            <button type="submit" class="btn btn-primary">Submit </button>
+                            <a href="/<%= linkPrefix%>" class="btn btn-danger"> Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</section>

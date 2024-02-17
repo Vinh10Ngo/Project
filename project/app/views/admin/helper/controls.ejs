@@ -1,0 +1,14 @@
+<% ControlsHelper = (elementsControl, linkPrefix, id) => {
+    let xHtmlResult = ''
+    elementsControl.forEach((item) => {
+        
+    let link = linkPrefix + item.collection + '/' + id
+
+     xHtmlResult += `<a href="/${link}" class="${item.class}" title="${item.title}">
+        <i class="${item.icon}"></i>
+    </a>` 
+    })
+    return xHtmlResult
+}
+%>
+

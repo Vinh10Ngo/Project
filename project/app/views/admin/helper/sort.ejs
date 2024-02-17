@@ -1,0 +1,17 @@
+<% sortHelper = (linkPrefix, name, sortField, sortFieldCurrent, sortTypeCurrent, option) => {
+    let order = (sortTypeCurrent === 'asc') ? 'desc' : 'asc' 
+    let link = linkPrefix + 'sort/' + sortField + '/' + order
+    let icon = '<i class="fa fa-fw fa-sort"></i>'
+    let style = (option !== undefined) ? `style="${option}"` : ''
+
+    if (sortField === sortFieldCurrent) {
+        if(sortTypeCurrent === 'asc') icon = '<ion-icon name="caret-down-outline"></ion-icon>'
+        else if (sortTypeCurrent === 'desc') icon = '<ion-icon name="caret-up-outline"></ion-icon>'
+    }
+    let xHtmlResult = `<th class="text-center pointer" ${style}><a href="/${link}" class="title_col">${name}${icon}</a>
+    </th>`
+    
+    return xHtmlResult
+}    
+%>
+

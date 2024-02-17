@@ -1,0 +1,13 @@
+<!-- optionSelected: truyền vào id của phần tử được chọn -->
+<% selectBoxAjaxCategoryHelper = (items, optionSelected = '', linkPrefix = '', id = '') => {
+    let xHtmlResult = ''
+    items = items.filter(obj => obj.id !== undefined)
+    items.forEach((item) => {
+        <!-- phần tử được đổ ra phần tử nào có id = optionSelected thì được chọn -->
+        let selected = (optionSelected == item.id) ? 'selected = "selected"': ''
+        xHtmlResult += `<option value=${item.id} ${selected}>${item.name}</option>`
+    })  
+    return `<select name="item_category" data-iditem="${id}" data-link="/${linkPrefix}change-category" class="custom-select custom-select-sm">${xHtmlResult}
+    </select>`
+}    
+%>

@@ -1,0 +1,30 @@
+<%
+let arrBox = [
+{name: 'items', icon: 'icon-results__cell active mouseOff', link: `${systemConfigs.prefixAdmin}/items`, total: countItems},
+{name: 'users', icon: 'icon-results__cell active mouseOff', link: `${systemConfigs.prefixAdmin}/users`, total: countUsers},
+{name: 'groups', icon: 'icon-results__cell active mouseOff', link: `${systemConfigs.prefixAdmin}/groups`, total: countGroups},
+{name: 'category', icon: 'icon-results__cell active mouseOff', link: `${systemConfigs.prefixAdmin}/category`, total: countCategory},
+{name: 'article', icon: 'icon-results__cell active mouseOff', link: `${systemConfigs.prefixAdmin}/article`, total: countArticle},
+{name: 'contact', icon: 'icon-results__cell active mouseOff', link: `${systemConfigs.prefixAdmin}/contact`, total: countContact},
+]
+let xHtmlBox = ''
+arrBox.forEach((item)=>{
+    xHtmlBox += `<div class="col-lg-3 col-6">
+
+        <div class="small-box bg-info">
+        <div class="inner">
+        <h3>${item.total}</h3>
+        <p>${item.name}</p>
+        </div>
+        <div class="icon">
+        <i class="ion ion-bag"></i>
+        </div>
+        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        </div>`
+})
+%>
+<div class="row">
+    <%- xHtmlBox%>
+</div>
+

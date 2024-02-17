@@ -1,0 +1,15 @@
+<% choiceHelper = (tick, name) => {
+    let yesChecked = '';
+    let noChecked = '';
+    if(tick == 'yes'){yesChecked = "checked"}
+    if(tick == 'no'){noChecked = "checked"}
+    let xHtmlResult = `<label><input type="radio" name="${name}" value="yes" ${yesChecked}>Yes</label>
+     <label><input type="radio" name="${name}" value="no" ${noChecked}>No</label>`
+    return xHtmlResult
+}    
+%>
+
+
+
+
+

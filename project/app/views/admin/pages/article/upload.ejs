@@ -1,0 +1,30 @@
+
+
+
+<%
+const linkPrefix = systemConfigs.prefixAdmin + `/${controllerName}/`
+%>
+
+<section class="content">
+    <div class="container-fluid">
+        <% include ./../../elements/errors%>
+        <div class="card card-info card-outline">
+            <div class="card-body">
+                <form action="/<%= linkPrefix%>upload" method="post" enctype="multipart/form-data" class="mb-0" id="admin-form">
+                    <div class="col-12 col-sm-8 offset-sm-2">
+                        <img src="public/files/category/default.jpg" alt="preview image" id="admin-preview-image" style="display: none;width: 100%; max-width: 500px">
+                        <input type="file" id="myFile" name="filename">
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="col-12 col-sm-8 offset-sm-2">
+                            <button type="submit" class="btn btn-primary">Submit </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,14 @@
+<% formBodyHelper = (item) => {
+    let xHtmlResult = ''
+    item.forEach((item) => {        
+     xHtmlResult += `<div class="form-group row" id="${item.id}">
+        <label for="${item.for}" class="col-sm-2 col-form-label text-sm-right required">${item.label}</label>
+        <div class="col-xs-12 col-sm-8">
+            ${item.input}
+        </div>  
+    </div>` 
+    })
+    return xHtmlResult
+}    
+%>
+

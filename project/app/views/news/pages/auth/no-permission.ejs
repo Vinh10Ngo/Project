@@ -1,0 +1,28 @@
+<%
+const url = `/${systemConfigs.prefixNews}/` ;
+
+const cleanedURL = url.replace(/\/+/g, '/');
+
+%>
+<!DOCTYPE html>
+<html lang="vi">
+<body class="hold-transition login-page">
+
+<div class="login-box">
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Không Có Quyền Truy Cập</p>
+
+      <p>Xin lỗi, bạn không có quyền truy cập trang này.</p>
+
+      <div class="row">
+        <div class="col-12">
+          <a href="<%=cleanedURL%>auth/login" class="btn btn-primary btn-block">Quay lại Trang Chủ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

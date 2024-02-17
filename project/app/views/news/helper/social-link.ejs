@@ -1,0 +1,22 @@
+<%
+socialLinkHelper = (items) => {
+    let arrSocial = [
+        {class: 'fab fa-facebook-f', link: items[0].info.social.facebook},
+        {class: 'fab fa-twitter', link: items[0].info.social.twitter},
+        {class: 'fab fa-pinterest-p', link: items[0].info.social.pinterest},
+        {class: 'fab fa-youtube', link: items[0].info.social.youtube},
+        {class: 'fab fa-instagram', link: items[0].info.social.instagram}, // Thêm biểu tượng Instagram
+        {class: 'fas fa-envelope', link: items[0].info.social.email}       // Thêm biểu tượng email
+         ] 
+  
+    let htmlResult = ''
+    arrSocial.forEach((item, index) => {
+        if (item.link) { 
+            htmlResult += `<a href="${item.link}">
+                <span class="${item.class}"></span>
+            </a>`
+        }
+    })
+    return htmlResult
+}
+%>

@@ -1,0 +1,26 @@
+<%
+showMenuUser = (userInfo) => {
+    const linkLogin = (`/${systemConfigs.prefixNews}` + '/auth/login').replace(/(\/)\1+/g, '$1')
+    const linkLogout = (`/${systemConfigs.prefixNews}` + '/auth/logout').replace(/(\/)\1+/g, '$1')
+    const linkAdmin = (`/${systemConfigs.prefixAdmin}` + '/dashboard').replace(/(\/)\1+/g, '$1')
+    xtmlMenuUser = ''
+    if(Object.keys(userInfo).length > 0) {
+        xtmlMenuUser = `
+        <a href="${linkLogout}" class="left-topbar-item">
+            Log out
+        </a>`
+        if(userInfo.groups.groups_acp == 'yes') {
+            xtmlMenuUser +=  `
+            <a href="${linkAdmin}" class="left-topbar-item">
+                Admin Control Panel
+            </a>`
+        }
+    } else {
+        xtmlMenuUser = `
+        <a href="${linkLogin}" class="left-topbar-item">
+            Log in
+        </a>`
+    }
+    return xtmlMenuUser
+}
+%>
